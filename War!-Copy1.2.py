@@ -6,6 +6,11 @@
 
 from random import shuffle
 import time
+from PIL import Image
+import glob
+
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 
 class card:
     def __init__(self, suit, rank, image):
@@ -76,7 +81,7 @@ class cardStack:
         suits = ["clubs", "diamonds", "hearts", "spades"]
         for suit in suits:
             for rank in range(1, 14):
-                self.stack.append(card(suit, rank))  # Uses the card class to create cards
+                self.stack.append(card(suit, rank, image))  # Uses the card class to create cards
 
     def stackSize(self):
         # Return the length of the stack
@@ -132,7 +137,7 @@ def highPlay(mainDeck):
     else:
         return "draw"
 
-#  Lay out the things befoe the game
+#  Lay out the things before the game
 deck = cardStack()  # Create a stack to be the main deck
 deck.giveFullDeck()  # give this stack a full deck of cards
 deck.shuffle(amount=5)  # shuffle this full deck of cards
