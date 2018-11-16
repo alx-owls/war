@@ -8,9 +8,22 @@ from random import shuffle
 import time
 
 class card:
-    def __init__(self, suit, rank):
+    def __init__(self, suit, rank, image):
         self.suit = suit.lower()  # make sure that the suit is spelled in all lowercase characters
         self.rank = rank
+        self.image = str(rank) + str(suit)
+        print(self.image)
+        if self.image in glob.iglob('Cards/*'):
+            img=mpimg.imread(image)
+            imgplot = plt.imshow(img)
+            plt.show()
+#         for filepath in glob.iglob('Cards/*'):
+#             if self.suit+self.rank == image in filepath:
+#                 print(image)
+        # loop through images folder
+           #if suit+rank is equal to an image in the folder
+            #set self.image = that image
+
 
     def isBlackOrRed(self):
         # Function to check if a card is black or red
